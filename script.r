@@ -36,7 +36,7 @@ for (model1 in hosp_mods) {
     locations = loc_all
   )
   pdf(
-    file = paste0("~/Dropbox/Reich_lab/hosp_email_plots/", model1),
+    file = paste0("~/Dropbox/Reich_lab/hosp_email_plots/", model1,".pdf"),
     width = 20,
     height = 12
   )
