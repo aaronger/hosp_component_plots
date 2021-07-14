@@ -7,7 +7,7 @@ hub_repo_path <- '../covid19-forecast-hub/'
 hub <- "US"
 source <- "local_hub_repo"
 
-fdates <- seq.Date(as.Date("2021-05-03"), as.Date("2021-06-28"), by = "7 days")
+fdates <- seq.Date(as.Date("2021-05-03"), as.Date("2021-07-12"), by = "7 days")
 
 hosp_mods <- map_dfr(
   paste0(hub_repo_path, "ensemble-metadata/", fdates,"-inc_hosp-model-eligibility.csv"),
@@ -29,14 +29,14 @@ fdat <- map_dfr(
 for (model1 in hosp_mods) {
   loc_all <- filter(fdat, model == model1) %>%
     pull(location) %>%
-    unique() %>% intersect(covidData::fips_codes$location[1:58])
+    unique() %>% intersect(covidData::fips_codes$location[1:52])
   truth_data <- load_truth(
     truth_source = "HealthData",
     target_variable = "inc hosp",
     locations = loc_all
   )
   pdf(
-    file = paste0("~/Dropbox/Reich_lab/hosp_email_plots/", model1,".pdf"),
+    file = paste0("~/Dropbox/Reich_lab/hosp_component_plots/", model1,".pdf"),
     width = 20,
     height = 12
   )
