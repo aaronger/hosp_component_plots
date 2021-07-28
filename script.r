@@ -7,7 +7,7 @@ hub_repo_path <- '../covid19-forecast-hub/'
 hub <- "US"
 source <- "local_hub_repo"
 
-fdates <- seq.Date(as.Date("2021-05-03"), as.Date("2021-07-12"), by = "7 days")
+fdates <- seq.Date(as.Date("2021-05-03"), as.Date("2021-07-26"), by = "7 days")
 
 hosp_mods <- map_dfr(
   paste0(hub_repo_path, "ensemble-metadata/", fdates,"-inc_hosp-model-eligibility.csv"),
